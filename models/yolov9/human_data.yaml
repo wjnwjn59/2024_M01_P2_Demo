@@ -1,0 +1,6 @@
+path: yolov9_human_detection/models/yolov9
+train: train/images
+val: val/images
+nc: 1
+names:
+- Human
