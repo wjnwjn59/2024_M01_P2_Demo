@@ -7,6 +7,7 @@ def download_model():
     url = 'https://drive.google.com/file/d/1_UcxxRSLh5QAZf5BQvNsSgQilWpnPq7F/view?usp=sharing'
     output_file = 'models/yolov9/weights/model_weight.zip'
     unzip_dest = 'models/yolov9/weights'
+    os.makedirs(unzip_dest, exist_ok=True)
 
     gdown.download(url, 
                    output_file, 
