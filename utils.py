@@ -11,7 +11,8 @@ def download_model():
 
     gdown.download(url, 
                    output_file, 
-                   quiet=True)
+                   quiet=True,
+                   fuzzy=True)
 
     with zipfile.ZipFile(output_file, 'r') as zip_ref:
         zip_ref.extractall(unzip_dest)
