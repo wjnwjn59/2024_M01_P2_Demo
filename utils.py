@@ -4,7 +4,7 @@ import gdown
 import zipfile
 
 def download_model():
-    url = 'https://drive.google.com/file/d/1jl4TmG5l9ETpTs3sH4BHyLayXWRMc7E1/view?usp=sharing'
+    url = 'https://drive.google.com/file/d/1EbBh-jXKvjoJ42WdlcweHOyqAsdLGmhF/view?usp=sharing'
     output_file = 'models/yolov9/weights/model_weight.zip'
     unzip_dest = 'models/yolov9/weights'
     os.makedirs(unzip_dest, exist_ok=True)
