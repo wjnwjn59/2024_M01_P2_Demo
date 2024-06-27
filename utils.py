@@ -12,7 +12,7 @@ def export_model(origin_model_path, new_model_path):
     model.export(new_model_path)
 
 def download_model():
-    id = 'qMkeShHvvp5zix5OGWcxcav4YPOCqu_c'
+    id = '1qMkeShHvvp5zix5OGWcxcav4YPOCqu_c'
     unzip_dest = 'models/yolov10/weights'
     os.makedirs(unzip_dest, exist_ok=True)
 
