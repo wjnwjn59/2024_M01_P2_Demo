@@ -25,7 +25,7 @@ def download_model():
     with zipfile.ZipFile(output_file, 'r') as zip_ref:
         zip_ref.extractall(unzip_dest)
 
-    export_model(output_file=Detector_Config.origin_weight_path,
+    export_model(origin_model_path=Detector_Config.origin_weight_path,
                  new_model_path=Detector_Config.export_weight_path)
 
 
