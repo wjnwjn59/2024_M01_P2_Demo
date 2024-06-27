@@ -10,7 +10,9 @@ from config.model_config import Detector_Config
 def export_model(origin_model_path):
     model = YOLOv10(origin_model_path)
 
-    model.export(format='onnx')
+    model.export(format='onnx',
+                 opset=13,
+                 simplify=True)
 
 def download_model():
     id = '1qMkeShHvvp5zix5OGWcxcav4YPOCqu_c'
@@ -24,6 +26,7 @@ def download_model():
 
     export_model(origin_model_path=Detector_Config.origin_weight_path)
 
+download_model()
 
 def generate_name():
     uuid_str = str(uuid.uuid4())
