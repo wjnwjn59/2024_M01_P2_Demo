@@ -3,23 +3,21 @@ import base64
 import streamlit as st
 
 from utils import save_upload_file, delete_file, download_model
-from models.yolov9.detector import inference
+from models.yolov10.detector import inference
 from config.model_config import Detector_Config
 from components.streamlit_footer import footer
 
 @st.cache_data(max_entries=1000)
 def process_and_display_image(image_path):
-    result_img = inference(
-        image_path,
-        weight_path=Detector_Config().weight_path,
-        yaml_path=Detector_Config().yaml_path
-    )
+    result_img = inference(image_path,
+                           weight_path=Detector_Config.export_weight_path,
+                           yaml_path=Detector_Config.yaml_path)
     st.markdown('**Detection result**')
     st.image(result_img)
 
 def main():
     st.set_page_config(
-        page_title="YOLOv9 Human Detection Demo - AI VIETNAM",
+        page_title="AIO2024 Module01 Project YOLOv10 - AI VIETNAM",
         page_icon='static/aivn_favicon.png',
         layout="wide"
     )
@@ -27,7 +25,8 @@ def main():
     col1, col2 = st.columns([0.8, 0.2], gap='large')
     
     with col1:
-        st.title(':sparkles: :blue[YOLOv9] Human Detection Demo')
+        st.title('AIO2024 - Module01 - Image Project')
+        st.title(':sparkles: :blue[YOLOv10] Helmet Safety Detection Demo')
         
     with col2:
         logo_img = open("static/aivn_logo.png", "rb").read()
@@ -60,6 +59,6 @@ def main():
 
 
 if __name__ == '__main__':
-    if not os.path.exists(Detector_Config.weight_path):
+    if not os.path.exists(Detector_Config.origin_weight_path):
         download_model()
     main()
