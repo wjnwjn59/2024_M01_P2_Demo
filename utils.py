@@ -6,10 +6,11 @@ import zipfile
 from ultralytics import YOLOv10
 from config.model_config import Detector_Config
 
-def export_model(origin_model_path, new_model_path):
+
+def export_model(origin_model_path):
     model = YOLOv10(origin_model_path)
 
-    model.export(new_model_path)
+    model.export(format='onnx')
 
 def download_model():
     id = '1qMkeShHvvp5zix5OGWcxcav4YPOCqu_c'
@@ -21,11 +22,7 @@ def download_model():
                    quiet=True,
                    fuzzy=True)
 
-    # with zipfile.ZipFile(output_file, 'r') as zip_ref:
-    #     zip_ref.extractall(unzip_dest)
-
-    export_model(origin_model_path=Detector_Config.origin_weight_path,
-                 new_model_path=Detector_Config.export_weight_path)
+    export_model(origin_model_path=Detector_Config.origin_weight_path)
 
 
 def generate_name():
