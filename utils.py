@@ -12,18 +12,17 @@ def export_model(origin_model_path, new_model_path):
     model.export(new_model_path)
 
 def download_model():
-    url = 'https://drive.google.com/file/d/1qMkeShHvvp5zix5OGWcxcav4YPOCqu_c/view?usp=drive_link'
-    output_file = 'models/yolov10/weights/model_weight.zip'
+    id = 'qMkeShHvvp5zix5OGWcxcav4YPOCqu_c'
     unzip_dest = 'models/yolov10/weights'
     os.makedirs(unzip_dest, exist_ok=True)
 
-    gdown.download(url, 
-                   output_file, 
+    gdown.download(id=id, 
+                   output=Detector_Config.origin_weight_path, 
                    quiet=True,
                    fuzzy=True)
 
-    with zipfile.ZipFile(output_file, 'r') as zip_ref:
-        zip_ref.extractall(unzip_dest)
+    # with zipfile.ZipFile(output_file, 'r') as zip_ref:
+    #     zip_ref.extractall(unzip_dest)
 
     export_model(origin_model_path=Detector_Config.origin_weight_path,
                  new_model_path=Detector_Config.export_weight_path)
