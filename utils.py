@@ -3,10 +3,18 @@ import uuid
 import gdown
 import zipfile
 
+from ultralytics import YOLOv10
+from config.model_config import Detector_Config
+
+def export_model(origin_model_path, new_model_path):
+    model = YOLOv10(origin_model_path)
+
+    model.export(new_model_path)
+
 def download_model():
-    url = 'https://drive.google.com/file/d/1EbBh-jXKvjoJ42WdlcweHOyqAsdLGmhF/view?usp=sharing'
-    output_file = 'models/yolov9/weights/model_weight.zip'
-    unzip_dest = 'models/yolov9/weights'
+    url = 'https://drive.google.com/file/d/1qMkeShHvvp5zix5OGWcxcav4YPOCqu_c/view?usp=drive_link'
+    output_file = 'models/yolov10/weights/model_weight.zip'
+    unzip_dest = 'models/yolov10/weights'
     os.makedirs(unzip_dest, exist_ok=True)
 
     gdown.download(url, 
@@ -16,6 +24,10 @@ def download_model():
 
     with zipfile.ZipFile(output_file, 'r') as zip_ref:
         zip_ref.extractall(unzip_dest)
+
+    export_model(output_file=Detector_Config.origin_weight_path,
+                 new_model_path=Detector_Config.export_weight_path)
+
 
 def generate_name():
     uuid_str = str(uuid.uuid4())
