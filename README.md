@@ -1,7 +1,7 @@
-# YOLOv9 Streamlit Demo
+# YOLOv10 Streamlit Demo
 
 ## Description
-A simple web demo for human detection using YOLOv9 and Streamlit.
+A simple web demo for human detection using YOLOv10 and Streamlit.
 
 ## How to use
 ### Option 1: Using conda environment
