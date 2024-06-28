@@ -1,7 +1,7 @@
 # YOLOv10 Streamlit Demo
 
 ## Description
-A simple web demo for human detection using YOLOv10 and Streamlit.
+A simple web demo for helmet safety detection using YOLOv10 and Streamlit. The fine-tuned YOLOv10n will be quantized and converted to onnx model.
 
 ## How to use
 ### Option 1: Using conda environment
